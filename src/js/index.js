@@ -2,8 +2,9 @@
 import '../scss/styles.scss'
 import '../css/styles.css'
 import html from '../index.html';
+import initializePage from './initWebpage'
 
-
+initializePage();
 
 
 // Import all of Bootstrap's JS
