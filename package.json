@@ -1,0 +1,16 @@
+{
+  "name": "fdm-site",
+  "version": "1.0.0",
+  "description": "Simple Website for FDM's training program. As this is a 3-day course, main goal is to utilize HTML and CSS via [Bootstrap](https://getbootstrap.com/). Javascript is optional.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
