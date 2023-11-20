@@ -1,9 +1,11 @@
-const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   entry: './src/js/index.js',
+  mode: 'development',
   output: {
-    filename: 'index.js',
+    filename: 'index_bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
   devServer: {
@@ -11,7 +13,13 @@ module.exports = {
     port: 8080,
     hot: true
   },
-  
+  plugins: [
+    new HtmlWebpackPlugin({
+        title: 'FDM Bank',
+        filename: 'index.html',
+        template: './src/index.html'
+    })
+  ],
   module: {
     rules: [
         {
@@ -38,6 +46,14 @@ module.exports = {
                     loader: 'sass-loader'
                 }
             ]
+        },
+        {
+            test: /\.html$/i,
+            loader: "html-loader"
+        },
+        {
+            test:/\.css$/i,
+            use:["style-loader", "css-loader"],
         }
     ]
   }
