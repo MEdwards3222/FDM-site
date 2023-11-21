@@ -47,10 +47,12 @@ function buildNavbar() {
     homeLink.textContent = "Home"
 
     newAccountLink.setAttribute("href", "#");
+    newAccountLink.setAttribute("id", "new-account-link")
     newAccountLink.classList.add('nav-link');
     newAccountLink.textContent = "Add";
 
     updateAccountLink.setAttribute("href", "#");
+    updateAccountLink.setAttribute("id", "update-account-link")
     updateAccountLink.classList.add('nav-link');
     updateAccountLink.textContent = "Update";
 
