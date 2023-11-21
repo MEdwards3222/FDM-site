@@ -1,4 +1,7 @@
-import {initHome} from "./home";
+import {initHome, buildHome} from "./home";
+import { setActiveBtn } from "./util";
+import { buildNewAccount } from "./newAccount";
+import { buildUpdateAccount } from "./updateAccount";
 
 
 function initializePage() {
@@ -61,6 +64,25 @@ function buildNavbar() {
     navbarNav.appendChild(updateAccountList);
     fluidContainer.appendChild(bankLogo);
     fluidContainer.appendChild(navbarNav)
+
+
+    homeList.addEventListener("click", (e) => {
+        if(e.target.classList.contains("active")) return;
+        setActiveBtn(homeLink);
+        buildHome();
+    })
+
+    newAccountList.addEventListener("click", (e) => {
+        if(e.target.classList.contains("active")) return;
+        setActiveBtn(newAccountLink);
+        buildNewAccount();
+    })
+
+    updateAccountList.addEventListener("click", (e) => {
+        if(e.target.classList.contains("active")) return;
+        setActiveBtn(newAccountLink);
+        buildUpdateAccount();
+    })
 
 
     navbar.appendChild(fluidContainer);
