@@ -98,7 +98,7 @@ function tableInformation(tableBody) {
     let tableInfo1 = {AccountType: "Checking", AccountBalance: 500, AccountOwner: "Michael Edwards"}
     let tableInfo2 = {AccountType: "Savings", AccountBalance: 7321, AccountOwner: "John Doe"}
     let tableInfo3 = {AccountType: "Investment", AccountBalance: 36920, AccountOwner: "Jane Doe"}
-    let tableInfo4 = {AccountType: "Checking", AccountBalance: 500000, AccountOwner: "Ryan Gossling"}
+    let tableInfo4 = {AccountType: "Checking", AccountBalance: 500000, AccountOwner: "Ryan Gosling"}
 
     let tableContent = [tableInfo1, tableInfo2, tableInfo3, tableInfo4];
     

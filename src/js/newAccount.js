@@ -23,16 +23,20 @@ function buildForm(){
     let accountTypeDiv = document.createElement("div");
     let accountTypeLabel = document.createElement("label");
     let accountTypeInput = document.createElement("input");
+    let accountTypeFeedback = document.createElement("div");
     let accountBalanceDiv = document.createElement("div");
     let accountBalanceLabel = document.createElement("label");
     let accountBalanceInput = document.createElement("input");
+    let accountBalanceFeedback = document.createElement("div");
+    let submitBtn = document.createElement("button");
 
     form.setAttribute("id", "new-account-form");
+    form.classList.add("needs-validation");
 
     accountTypeDiv.classList.add("mb-3");
     accountBalanceDiv.classList.add("mb-3");
 
-    accountTypeLabel.setAttribute("for", "account-type");
+    accountTypeLabel.setAttribute("for", "validationCustom01");
     accountTypeLabel.classList.add("form-label");
     accountTypeLabel.textContent = "Account Type";
 
@@ -42,24 +46,38 @@ function buildForm(){
    
     accountTypeInput.setAttribute("type", "text");
     accountTypeInput.classList.add("form-control");
-    accountTypeInput.setAttribute("id", "account-type-input");
+    accountTypeInput.setAttribute("id", "validationCustom01");
+    accountTypeInput.setAttribute("required", "");
 
-    accountBalanceInput.setAttribute("type", "text");
+    accountBalanceInput.setAttribute("type", "number");
     accountBalanceInput.classList.add("form-control");
     accountBalanceInput.setAttribute("id", "account-balance-input");
+    accountBalanceInput.setAttribute("required", "");
+
+    accountTypeFeedback.classList.add("invalid-feedback");
+    accountTypeFeedback.textContent = "Please enter only alphabetical letters";
+
+    accountBalanceFeedback.classList.add("invalid-feedback");
+    accountBalanceFeedback.textContent = "Please enter only numbers";
+
+    submitBtn.setAttribute("type", "submit");
+    submitBtn.classList.add("btn", "btn-primary");
+    submitBtn.textContent = "Create New Account";
 
     accountTypeDiv.appendChild(accountTypeLabel);
     accountTypeDiv.appendChild(accountTypeInput);
+    accountTypeDiv.appendChild(accountTypeFeedback);
 
     accountBalanceDiv.appendChild(accountBalanceLabel);
     accountBalanceDiv.appendChild(accountBalanceInput);
-
-    //----
+    accountBalanceDiv.appendChild(accountBalanceFeedback);
 
     form.appendChild(accountTypeDiv);
     form.appendChild(accountBalanceDiv);
+    form.appendChild(submitBtn);
 
     return form;
 }
+
 
 export {buildNewAccount};
