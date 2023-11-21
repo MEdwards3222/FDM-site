@@ -1,17 +1,28 @@
 function initHome() {
- let hello = document.createElement("div");
+ let home = document.createElement("div");
 
- hello.textContent = "Hello, this is the Home Page."
+ home.textContent = "Hello, this is the home page."
 
- return hello;
+ home.setAttribute("id", "home-page");
+ home.classList.add("container")
+
+
+ return home;
 }
 
 function buildHome() {
-    let hello = document.createElement("div");
+    let pageContent = document.getElementById("page-content")
+    let home = document.createElement("div");
 
-    hello.textContent = "Hello, this is the Home Page."
+    pageContent.textContent = "";
 
-    return hello;
+    home.setAttribute("id", "home-page");
+    home.classList.add("container");
+    home.textContent = "Hello, this is the home page."
+    
+    pageContent.appendChild(home);
+
+    return pageContent;
 }
 
 export {initHome, buildHome}

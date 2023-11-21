@@ -80,7 +80,7 @@ function buildNavbar() {
 
     updateAccountList.addEventListener("click", (e) => {
         if(e.target.classList.contains("active")) return;
-        setActiveBtn(newAccountLink);
+        setActiveBtn(updateAccountLink);
         buildUpdateAccount();
     })
 
