@@ -36,6 +36,7 @@ function buildHome() {
     let home = document.createElement("div");
     let h1 = document.createElement("h1");
     let addBtn = document.createElement("button");
+    let addAccountLink = document.getElementById("new-account-link");
 
     pageContent.textContent = "";
 
@@ -49,6 +50,11 @@ function buildHome() {
     
     home.appendChild(h1);
     home.appendChild(addBtn);
+
+    addBtn.addEventListener("click", (e) => {
+        setActiveBtn(addAccountLink);
+        buildNewAccount();
+    })
 
 
 
