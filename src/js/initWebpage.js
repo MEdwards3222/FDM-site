@@ -86,6 +86,12 @@ function buildNavbar() {
         buildUpdateAccount();
     })
 
+    bankLogo.addEventListener("click", (e) => {
+        if(e.target.classList.contains("active")) return;
+        setActiveBtn(homeLink);
+        buildHome();
+    })
+
 
     navbar.appendChild(fluidContainer);
     return navbar

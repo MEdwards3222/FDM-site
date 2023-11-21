@@ -121,7 +121,7 @@ function tableInformation(tableBody) {
         } 
 
         let td = document.createElement("td");
-        td.appendChild(createActionBtn())
+        td.appendChild(createActionBtn(i))
         tr.appendChild(td);
         tableBody.appendChild(tr)
     }

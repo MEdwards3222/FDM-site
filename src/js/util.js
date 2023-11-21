@@ -12,7 +12,7 @@ function setActiveBtn(button) {
     button.classList.add('active');
 }
 
-function createActionBtn() {
+function createActionBtn(id) {
     let btnContainer = document.createElement("div");
     let updateBtn = document.createElement("button");
     let deleteBtn = document.createElement("button");
@@ -32,6 +32,7 @@ function createActionBtn() {
 
     updateBtn.addEventListener("click", (e) => {
         setActiveBtn(updateAccountLink);
+        parseURL(id);
         buildUpdateAccount();
     })
 
@@ -39,6 +40,15 @@ function createActionBtn() {
     btnContainer.appendChild(deleteBtn);
 
     return btnContainer;
+}
+
+function parseURL(id) {
+    let parsedURL = new URL(window.location.href);
+    
+    parsedURL.searchParams.set("id", id);
+
+    history.pushState({}, "", parsedURL);
+    
 }
 
 export {setActiveBtn, createActionBtn}
