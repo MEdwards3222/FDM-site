@@ -2,6 +2,8 @@ import {initHome, buildHome} from "./home";
 import { setActiveBtn } from "./util";
 import { buildNewAccount } from "./newAccount";
 import { buildUpdateAccount } from "./updateAccount";
+import { buildLogin } from "./login";
+import { buildRegister } from "./register";
 
 
 function initializePage() {
@@ -21,9 +23,13 @@ function buildNavbar() {
     let homeList = document.createElement('li')
     let newAccountList = document.createElement('li');
     let updateAccountList = document.createElement('li');
+    let loginList = document.createElement('li');
+    let registerList = document.createElement('li');
     let homeLink = document.createElement('a');
     let newAccountLink = document.createElement('a');
     let updateAccountLink = document.createElement('a');
+    let loginLink = document.createElement('a');
+    let registerLink = document.createElement('a');
 
 
     navbar.setAttribute("id", "navbar");
@@ -41,6 +47,8 @@ function buildNavbar() {
     homeList.classList.add("nav-item");
     newAccountList.classList.add("nav-item");
     updateAccountList.classList.add("nav-item");
+    loginList.classList.add("nav-item");
+    registerList.classList.add("nav-item");
 
     homeLink.setAttribute("href", "#");
     homeLink.classList.add('nav-link', 'active');
@@ -56,14 +64,29 @@ function buildNavbar() {
     updateAccountLink.classList.add('nav-link');
     updateAccountLink.textContent = "Update";
 
+    loginLink.setAttribute("href", "#");
+    loginLink.setAttribute("id", "login-link");
+    loginLink.classList.add("nav-link");
+    loginLink.textContent = "Login";
+
+    registerLink.setAttribute("href", "#");
+    registerLink.setAttribute("id", "register-link");
+    registerLink.classList.add("nav-link");
+    registerLink.textContent = "Register";
+
+
     homeList.appendChild(homeLink)
     newAccountList.appendChild(newAccountLink)
     updateAccountList.appendChild(updateAccountLink)
+    loginList.appendChild(loginLink);
+    registerList.appendChild(registerLink);
     
 
     navbarNav.appendChild(homeList);
     navbarNav.appendChild(newAccountList);
     navbarNav.appendChild(updateAccountList);
+    navbarNav.appendChild(loginList);
+    navbarNav.appendChild(registerList);
     fluidContainer.appendChild(bankLogo);
     fluidContainer.appendChild(navbarNav)
 
@@ -91,6 +114,19 @@ function buildNavbar() {
         setActiveBtn(homeLink);
         buildHome();
     })
+
+    loginList.addEventListener("click", (e) => {
+        if(e.target.classList.contains("active")) return;
+        setActiveBtn(loginLink);
+        buildLogin();
+    })
+
+   registerList.addEventListener("click", (e) => {
+    if(e.target.classList.contains("active")) return;
+    setActiveBtn(registerLink);
+    buildRegister();
+   })
+    
 
 
     navbar.appendChild(fluidContainer);
