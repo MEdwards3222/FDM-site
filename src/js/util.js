@@ -51,4 +51,56 @@ function parseURL(id) {
     
 }
 
-export {setActiveBtn, createActionBtn}
+function createCard(name){
+    let card = document.createElement("div");
+    let cardBody = document.createElement("div");
+    let cardTitle = document.createElement("h5");
+    let cardText = document.createElement("p");
+
+    card.classList.add("card");
+    card.setAttribute("style", "width: 18rem;");
+    
+
+    cardBody.classList.add("card-body");
+
+    cardTitle.classList.add("card-title");
+
+    cardText.classList.add("card-text");
+    cardText.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquam quam ipsum, non imperdiet mauris lobortis at. Ut feugiat, nisi."
+
+    cardTitle.appendChild(createTitle(name));
+    
+    cardBody.appendChild(cardTitle);
+    cardBody.appendChild(cardText);
+
+    card.appendChild(cardBody);
+
+    return card;
+}
+
+function createRow() {
+    let row = document.createElement("div");
+
+    row.classList.add("row", "gx-5");
+
+    return row;
+}
+
+function createTitle(name) {
+    let title = document.createElement("div");
+    let avatar = document.createElement("div");
+    let userName = document.createElement("h5");
+
+    avatar.classList.add("avatar");
+
+    userName.classList.add("userName");
+    userName.textContent = name;
+
+    title.appendChild(avatar);
+    title.appendChild(userName);
+
+
+    return title;
+}
+
+export {setActiveBtn, createActionBtn, createCard, createRow, createTitle}

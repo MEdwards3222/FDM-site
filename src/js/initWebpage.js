@@ -4,6 +4,7 @@ import { buildNewAccount } from "./newAccount";
 import { buildUpdateAccount } from "./updateAccount";
 import { buildLogin } from "./login";
 import { buildRegister } from "./register";
+import { buildUsers } from "./users";
 
 
 function initializePage() {
@@ -25,11 +26,13 @@ function buildNavbar() {
     let updateAccountList = document.createElement('li');
     let loginList = document.createElement('li');
     let registerList = document.createElement('li');
+    let userList = document.createElement("li");
     let homeLink = document.createElement('a');
     let newAccountLink = document.createElement('a');
     let updateAccountLink = document.createElement('a');
     let loginLink = document.createElement('a');
     let registerLink = document.createElement('a');
+    let userLink = document.createElement("a");
 
 
     navbar.setAttribute("id", "navbar");
@@ -49,6 +52,7 @@ function buildNavbar() {
     updateAccountList.classList.add("nav-item");
     loginList.classList.add("nav-item");
     registerList.classList.add("nav-item");
+    userList.classList.add("nav-item");
 
     homeLink.setAttribute("href", "#");
     homeLink.classList.add('nav-link', 'active');
@@ -74,12 +78,18 @@ function buildNavbar() {
     registerLink.classList.add("nav-link");
     registerLink.textContent = "Register";
 
+    userLink.setAttribute("href", "#");
+    userLink.setAttribute("id", "user-link");
+    userLink.classList.add("nav-link");
+    userLink.textContent = "Users";
+
 
     homeList.appendChild(homeLink)
     newAccountList.appendChild(newAccountLink)
     updateAccountList.appendChild(updateAccountLink)
     loginList.appendChild(loginLink);
     registerList.appendChild(registerLink);
+    userList.appendChild(userLink);
     
 
     navbarNav.appendChild(homeList);
@@ -87,6 +97,7 @@ function buildNavbar() {
     navbarNav.appendChild(updateAccountList);
     navbarNav.appendChild(loginList);
     navbarNav.appendChild(registerList);
+    navbarNav.appendChild(userList);
     fluidContainer.appendChild(bankLogo);
     fluidContainer.appendChild(navbarNav)
 
@@ -122,9 +133,15 @@ function buildNavbar() {
     })
 
    registerList.addEventListener("click", (e) => {
-    if(e.target.classList.contains("active")) return;
-    setActiveBtn(registerLink);
-    buildRegister();
+        if(e.target.classList.contains("active")) return;
+        setActiveBtn(registerLink);
+        buildRegister();
+   })
+
+   userList.addEventListener("click", (e) => {
+        if(e.target.classList.contains("active")) return;
+        setActiveBtn(userLink);
+        buildUsers();
    })
     
 
